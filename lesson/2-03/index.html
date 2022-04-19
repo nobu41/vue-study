@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <title>Vue.js App</title>
+  <link href="main.css" rel="stylesheet">
+</head>
+<body>
+  <div id="app">
+    <button v-on:click="isActive=!isActive">isActiveのTure or Falthの切り替え</button>
+
+    <!-- clas名に【-】を使うときは【''】で囲むこと -->
+    <p class="item" v-bind:class="{child:isChild, 'is-active':isActive}">
+      動的なクラス
+    </p>
+    <!-- style名のに【-】を使うときは【''】で囲むこと -->
+    <p class="item"v-bind:style="{color:textColor, backgroundColor:bgColor}">
+      動的なスタイルを付与
+    </p>
+
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>
