@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <title>Vue.js App</title>
+  <link href="main.css" rel="stylesheet">
+</head>
+<body>
+  <div id="app">
+    <br><br>
+    <span>【右クリック制御】<br></span>
+    <div v-on:click.right="handler">右クリック機能するexample</div>
+    <!-- 右ボタンを押した時のコンテキストメニューを表示させない -->
+    <div v-on:click.right.prevent="handler">右クリック機能しないexample</div>
+
+    <br><br>
+    <span>【.stop】<br></span>
+    <div v-on:click="handler('stop_div1')">
+      stop_div1
+      <a href="#top" v-on:click.stop="handler('stop_div2')">stop_div2</a>
+    </div>
+
+    <br><br>
+    <span>【.prevent】<br></span>
+    <div v-on:click="handler('prevent_div1')">
+      prevent_div1
+      <a href="#top" v-on:click.prevent="handler('prevent_div2')">prevent_div2</a>
+    </div>
+
+    <br><br>
+    <span>【.capture】<br></span>
+    <div v-on:click.capture="handler('capture_div1')">
+      capture_div1
+      <div v-on:click="handler('capture_div2')">
+        capture_div2
+        <div v-on:click="handler('capture_div3')">capture_div3</div>
+      </div>
+    </div>
+<!-- 
+    <br><br>
+    <span>【.native】<br></span> -->
+<!-- コンポーネントをクリックするとハンドラが呼び出される -->
+<!-- <my-component v-on:click.native="handler">aa</my-component> -->
+<!-- コンポーネントをクリックしてもハンドラは呼び出されない -->
+<!-- <my-component v-on:click="handler">aa</my-component> -->
+
+
+
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>
