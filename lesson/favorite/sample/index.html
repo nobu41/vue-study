@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <title>Vue.js App</title>
+  <link href="main.css" rel="stylesheet">
+</head>
+<body>
+  <div id="app">
+    <div class="container">
+        <div class="row" v-if="!isLs">
+            <div class="col">
+                <div class="alert alert-warning">
+                    お使いのブラウザではlocalStrage機能は使用できません。
+                </div>
+            </div>
+        </div>
+        <div class="row py-3">
+            <div class="col">
+                <h1>お気に入り登録</h1>
+                <div>ただいまのお気に入り登録件数は<strong class="display-4 font-weight-bold">{{ favs.length }}</strong>件です。<br>
+                    <a href="index2.html">お気に入り一覧を見る</a>
+                </div>
+            </div>
+        </div>
+
+        <table>
+          <tbody>
+              <tr v-for="item in data" :key="item.id">
+                  <td>
+                    <div class="newicon">New</div>
+                    <a v-bind:id="item.name">&rtrif;{{ item.detail}}</a>
+                  </td>
+                  <td>             <span class="col-auto">
+                    <button class="btn" :class="isFavs(item.id) ?'btn-secondary' : 'btn-primary'"
+                        v-on:click="toggleFavs($event,item.id)">
+                        <template v-if="isFavs(item.id)">
+                            お気に入り削除
+                        </template>
+                        <template v-else>
+                            お気に入り追加
+                        </template>
+                    </button>
+                </span></td>
+              </tr>
+          </tbody>
+      </table>
+
+
+        <ul class="row border-top py-3 align-items-center">
+          <li v-for="item in data" :key="item.id" v-bind:id="item.name">
+            <div class="newicon">New</div>
+            &rtrif;{{ item.detail}}
+             <span class="col-auto">
+                <button class="btn" :class="isFavs(item.id) ?'btn-secondary' : 'btn-primary'"
+                    v-on:click="toggleFavs($event,item.id)">
+                    <template v-if="isFavs(item.id)">
+                        お気に入り削除
+                    </template>
+                    <template v-else>
+                        お気に入り追加
+                    </template>
+                </button>
+            </span>
+          </li>
+        </ul>
+    </div>
+</div>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+  <!-- <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.5/lodash.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/axios@0.17.1/dist/axios.min.js"></script> -->
+  <!-- <script src="sample-component.js"></script> -->
+  <script src="main.js"></script>
+</body>
+</html>
