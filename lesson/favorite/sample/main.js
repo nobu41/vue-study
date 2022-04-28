@@ -15,50 +15,59 @@ var app = new Vue({
                 {
                     id: 2,
                     name: 'serenayo',
+                    ganame: 'newm-',
                     detail: '私はセレナ！',
                     newflag: 0
                 },
                 {
                     id: 3,
                     name: 'sukidana',
+                    ganame: 'newm-',
                     detail: '好きだなぁ',
                     newflag: 0
                 },
                 {
                     id: 4,
                     name: 'doushitano',
+                    ganame: 'newm-',
                     detail: 'どうしたの？',
                     newflag: 0
                 },
                 {
                     id: 5,
                     name: 'wakaranai',
+                    ganame: 'newm-',
                     detail: '分からないけど…',
                     newflag: 0
                 }, {
                     id: 6,
                     name: 'finish',
+                    ganame: 'newm-',
                     detail: 'フィニーッシュ！',
                     newflag: 0
                 }, {
                     id: 7,
                     name: 'mochiron',
+                    ganame: 'newm-',
                     detail: 'もちろん！',
                     newflag: 0
                 }, {
                     id: 8,
                     name: 'zyazyan',
+                    ganame: 'newm-',
                     detail: 'じゃじゃ～ん！',
                     newflag: 0
                 }, {
                     id: 9,
                     name: 'satoshi',
+                    ganame: 'newm-',
                     detail: 'サトシ！',
                     newflag: 0
                 },
                 {
                     id: 10,
                     name: 'genki',
+                    ganame: 'newm-',
                     detail: 'メッチャ元気！',
                     newflag: 0
                 },
