@@ -1,0 +1,12 @@
+/* StyleSheet */
+.v-enter-active {
+  transition: opacity 1s;
+}
+/* 微妙に時間をずらして文字色の濃度を調整してます */
+.v-leave-active {
+  transition: opacity 0.8s ease 0.2s;
+  position: absolute;
+}
+.v-enter, .v-leave-to {
+  opacity: 0;
+}
