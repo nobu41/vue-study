@@ -31,7 +31,7 @@
                     <div class="newicon">New</div>
                     <a v-bind:id="item.name">&rtrif;{{ item.detail}}</a>
                   </td>
-                  <td>             <span class="col-auto">
+                  <td><span class="col-auto">
                     <button class="btn" :class="isFavs(item.id) ?'btn-secondary' : 'btn-primary'"
                         v-on:click="toggleFavs($event,item.id)">
                         <template v-if="isFavs(item.id)">
@@ -44,8 +44,7 @@
                 </span></td>
               </tr>
           </tbody>
-      </table>
-
+        </table>
 
         <ul class="row border-top py-3 align-items-center">
           <li v-for="item in data" :key="item.id" v-bind:id="item.name">
