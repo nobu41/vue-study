@@ -1,3 +1,3 @@
 # vue-test
-プルリクのテスト
+プルリクのテスト！
 vueのテスト + Git(SourceTree)の練習
