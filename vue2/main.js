@@ -3,5 +3,10 @@ var app = new Vue({
     data: {
         message:'hello vue.js!',
         list: ['りんご','バナナ','いちご']
+    },
+    methods: {
+        handleClick: function(event) {
+            alert(event.target)//[object HTMLButtonElement]
+        }
     }
   })
