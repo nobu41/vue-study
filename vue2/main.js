@@ -3,7 +3,8 @@ var app = new Vue({
     data: {
         message:'初期メッセージ',
         messageNumber:'数値としてうけとる',
-        list: ['りんご','バナナ','いちご']
+        list: ['りんご','バナナ','いちご'],
+        show: false
     },
     methods: {
         handleClick: function(event) {
