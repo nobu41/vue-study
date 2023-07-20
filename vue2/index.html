@@ -8,7 +8,10 @@
 <body>
   <div id="app">
     <!-- この#appの内側にテンプレートを書き込んでいく -->
-    {{message}}
+    <p>{{message}}</p>
+    <input v-model="message">
+    <p>{{messageNumber}}</p>
+    <input v-model.number="messageNumber">
     <ol>
         <li v-for="item in list">{{item}}</li>
     </ol>

@@ -1,7 +1,8 @@
 var app = new Vue({
     el: '#app',
     data: {
-        message:'hello vue.js!',
+        message:'初期メッセージ',
+        messageNumber:'数値としてうけとる',
         list: ['りんご','バナナ','いちご']
     },
     methods: {
