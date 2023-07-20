@@ -1,1 +1,8 @@
-/* StyleSheet */    
+/* StyleSheet */
+.v-enter-active, .v-leave-active {
+    transition: opacity 1s;
+}
+/* opacity:0から1へフェードイン、アウト */
+.v-enter, .v-leave-to {
+    opacity: 0;
+}

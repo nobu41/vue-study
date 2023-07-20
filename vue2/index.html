@@ -8,26 +8,12 @@
 <body>
   <div id="app">
     <!-- この#appの内側にテンプレートを書き込んでいく -->
-    <h2>フォーム入力と同期</h2>
-    <p>{{message}}</p>
-    <input v-model="message">
-
-    <p>{{messageNumber}}</p>
-    <input v-model.number="messageNumber">
-
-    <hr>
-    <h2>繰り返しの描画</h2>
-    <ol>
-      <li v-for="item in list">{{item}}</li>
-    </ol>
-
-    <hr>    
-    <h2>イベントの利用</h2>
-    <button v-on:click="handleClick">Click</button>
     
-    <hr>
-    <h2>条件分岐</h2>
-    <p v-if="show">v-ifの表示</p>
+    <h2>トランジション＆アニメーション</h2>
+    <button v-on:click="show=!show">切り替え</button>
+    <transition>
+      <p v-if="show">hello! transition</p>
+    </transition>
 
   </div>
   <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
