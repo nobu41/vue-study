@@ -8,12 +8,17 @@
 <body>
   <div id="app">
     <!-- この#appの内側にテンプレートを書き込んでいく -->
-    
-    <h2>トランジション＆アニメーション</h2>
-    <button v-on:click="show=!show">切り替え</button>
-    <transition>
-      <p v-if="show">hello! transition</p>
-    </transition>
+
+    <h2>オブジェクトや配列要素の表示</h2>
+    <p>{{message.value}}</p>
+    <p>{{message.value.length}}</p>
+    <p>{{ list[2] }}</p>
+    <p>{{ list[num] }}</p><!-- プロパティを組み合わせて使用 -->
+    <p>{{ 1 + 1 }}</p><!-- 式は使用できる※変数セットなど文はダメ -->
+
+    <p>{{ message.value.length >= 10 ? '10文字以上' : '10文字未満' }}</p><!-- 条件によってテキストを変更 -->
+
+    <p>{{ Math.round(3.14) }}</p><!-- 小数点を丸める -->
 
   </div>
   <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
