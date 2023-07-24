@@ -9,16 +9,26 @@
   <div id="app">
     <!-- この#appの内側にテンプレートを書き込んでいく -->
 
-    <h2>オブジェクトや配列要素の表示</h2>
-    <p>{{message.value}}</p>
-    <p>{{message.value.length}}</p>
-    <p>{{ list[2] }}</p>
-    <p>{{ list[num] }}</p><!-- プロパティを組み合わせて使用 -->
-    <p>{{ 1 + 1 }}</p><!-- 式は使用できる※変数セットなど文はダメ -->
+    <input type="text" v-bind:value="message">
+    <input type="text" :value="message">
 
-    <p>{{ message.value.length >= 10 ? '10文字以上' : '10文字未満' }}</p><!-- 条件によってテキストを変更 -->
 
-    <p>{{ Math.round(3.14) }}</p><!-- 小数点を丸める -->
+    <!-- DOMのtextContentプロパティにバインド -->
+    <div v-bind:text-content.prop="message">...</div>
+
+    <!-- DOMのscrollTopプロパティにバインド -->
+    <div v-bind:scroll-top.prop="scroll">...</div>
+
+    <!-- 
+    v-bindの装飾子
+    .prop：属性の代わりにDOMプロパティとしてバインドする
+    .camel：ケバブケースの属性名をキャメルケースに変換する
+    .sync：双方向バインディングを行う
+     -->
+
+     <!-- データの内容確認 -->
+     <pre>{{ $data }}</pre>
+
 
   </div>
   <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>

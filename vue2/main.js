@@ -1,14 +1,10 @@
 var app = new Vue({
     el: '#app',
     data: {
-        //オブジェクトデータ
-        message: {
-            value: 'hello Vue.js!'
-        },
-
-        //配列データ
-        list: ['りんご', 'バナナ', 'いちご'],
-        //別のデータを使用してlistから取り出す要素を動的に
-        num:1
+        message: 'hello Vue.js!',
+        scroll: 0,
+    },
+    methods: function() {
+        this.scroll = 10 //要素のスクロール量を操作
     }
-  })
+})
