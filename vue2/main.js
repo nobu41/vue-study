@@ -1,10 +1,13 @@
 var app = new Vue({
     el: '#app',
     data: {
-        message: 'hello Vue.js!',
-        scroll: 0,
+        count: 0,
     },
-    methods: function() {
-        this.scroll = 10 //要素のスクロール量を操作
+    methods: {
+        //ボタンクリック時のハンドラ
+        increment:function(){
+            //methods内でプロパティ（count）を使用する場合はthisが必要
+            this.count += 1 //処理は再代入するだけでok
+        }
     }
 })

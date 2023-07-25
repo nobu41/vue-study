@@ -9,15 +9,11 @@
   <div id="app">
     <!-- この#appの内側にテンプレートを書き込んでいく -->
 
-    <input type="text" v-bind:value="message">
-    <input type="text" :value="message">
+    <!-- countプロパティを表示 -->
+    <p>{{ count }} 回クリックした</p>
+    <!-- ボタンクリックでincrementメソッドを呼び出す -->
+    <button v-on:click="increment">カウントを増やす</button>
 
-
-    <!-- DOMのtextContentプロパティにバインド -->
-    <div v-bind:text-content.prop="message">...</div>
-
-    <!-- DOMのscrollTopプロパティにバインド -->
-    <div v-bind:scroll-top.prop="scroll">...</div>
 
     <!-- 
     v-bindの装飾子
@@ -26,6 +22,7 @@
     .sync：双方向バインディングを行う
      -->
 
+     <hr>
      <!-- データの内容確認 -->
      <pre>{{ $data }}</pre>
 
