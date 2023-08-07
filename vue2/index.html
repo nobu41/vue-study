@@ -10,13 +10,26 @@
     <!-- この#appの内側にテンプレートを書き込んでいく -->
 
 
-    <!-- templateによるv-ifグループ化
+    <!-- v-ifの条件分岐
+        グループ化して同じ要素を使用したとき、
+        属性の状態が残ったりトランジションが発動しないなど
+        予期せぬ動作を防ぐため、
+        グループ化されている要素それぞれにユニークなkeyを設定する。
          ※v-showでは使えないから注意
     -->
-    <template v-if="ok">
-      <h1>test</h1>
-      <p>tes</p>
-    </template>
+
+
+    <div v-if="type === 'A'" key="content-visuble">
+      type Aです
+    </div>
+
+    <div v-lese-if="type === 'B'" key="content-loading">
+      type Bです
+    </div>
+
+    <div v-else  key="content-nohit">
+      条件外です
+    </div>
 
 
     <!-- 
