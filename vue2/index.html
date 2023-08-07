@@ -8,11 +8,22 @@
 <body>
   <div id="app">
     <!-- この#appの内側にテンプレートを書き込んでいく -->
-    <!-- 円の半径を操作 radius -->
-    <svg xmlns="http://www.w3.org/2000/svg" version="1.1">
-      <circle cx="100" cy="75" v-bind:r="radius" fill="lightpink" />
-    </svg>
-    <input type="range" min="0" max="100" v-model="radius">
+
+    <!-- ifは満たさない場合DOMが表示されない
+      すべての監視は解除される。コンポーネントならインスタンスは計りされ、
+      次に描画されるときは状態は初期化される。
+      内側にディレクティブやコンポーネントを多用、
+      データたがないとエラーになる場合はv-ifを推奨
+     -->
+    <div v-if="ok">v-if条件による描画</div>
+
+
+    <!-- showは満たさない場合display:noneになる
+      表示されていないだけで監視はされている。
+      内側にディレクティブやコンポーネントが少なく、
+      切替頻度が高いものはv-showを推奨
+    -->
+    <div v-show="ok">v-show条件による描画</div>
 
     <!-- 
     v-bindの装飾子
