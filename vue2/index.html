@@ -20,10 +20,14 @@
 
     <p style="color:blue;" v-bind:style="{ color: textColor }">上書きされる</p>
 
-
-
     <!-- クラスの条件に三項演算子を使う -->
     <p v-bind:class="[ isActive ? 'active' : 'normal' , otherClass ]">クラスの条件に三項演算子を使う</p>
+
+
+    <!-- オブジェクトデータを渡すこともできる -->
+    <p v-bind:class="classObject">Text</p>
+    <p v-bind:style="styleObject">Text</p>
+
 
 
 
