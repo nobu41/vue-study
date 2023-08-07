@@ -8,16 +8,11 @@
 <body>
   <div id="app">
     <!-- この#appの内側にテンプレートを書き込んでいく -->
-
-    <!-- 複数の属性のデータバインディング -->
-    <!-- v-bindeの引数を省略すると一括バインドができる
-         v-bind:src="item.src"等、複数書く必要がない
-     -->
-    <img v-bind="item">
-
-    <!-- 引数を持ったv-bindを併用すれば、特定の要素だけ変更できる -->
-    <img v-bind="item" v-bind:id="'thum-' + item.id" v-bind:alt="'追記：' + item.alt">
-
+    <!-- 円の半径を操作 radius -->
+    <svg xmlns="http://www.w3.org/2000/svg" version="1.1">
+      <circle cx="100" cy="75" v-bind:r="radius" fill="lightpink" />
+    </svg>
+    <input type="range" min="0" max="100" v-model="radius">
 
     <!-- 
     v-bindの装飾子
