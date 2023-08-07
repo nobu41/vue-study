@@ -9,10 +9,22 @@
   <div id="app">
     <!-- この#appの内側にテンプレートを書き込んでいく -->
 
-    <!-- countプロパティを表示 -->
-    <p>{{ count }} 回クリックした</p>
-    <!-- ボタンクリックでincrementメソッドを呼び出す -->
-    <button v-on:click="increment">カウントを増やす</button>
+    <!-- class -->
+    <p v-bind:class="{ child: isChild, 'is-active': isActive }">classの制御</p>
+
+    <!-- style -->
+    <p v-bind:style="{ color: textColor, backgroundColor: bgColor }">styleの制御</p>
+
+    <!-- プレーンな属性と併用した場合、上書きまたはマージされる -->
+    <p class="child" v-bind:class="{ 'is-active': isActive }">マージされる</p>
+
+    <p style="color:blue;" v-bind:style="{ color: textColor }">上書きされる</p>
+
+
+
+    <!-- クラスの条件に三項演算子を使う -->
+    <p v-bind:class="[ isActive ? 'active' : 'normal' , otherClass ]">クラスの条件に三項演算子を使う</p>
+
 
 
     <!-- 
