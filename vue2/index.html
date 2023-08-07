@@ -10,26 +10,42 @@
     <!-- この#appの内側にテンプレートを書き込んでいく -->
 
 
-    <!-- v-ifの条件分岐
-        グループ化して同じ要素を使用したとき、
-        属性の状態が残ったりトランジションが発動しないなど
-        予期せぬ動作を防ぐため、
-        グループ化されている要素それぞれにユニークなkeyを設定する。
-         ※v-showでは使えないから注意
+    <!-- v-for
+          <li v-for="代入する変数名 in 繰り返したい配列 or オブジェクト名" v-bind:key="item.id">
     -->
 
+    <ul>
+      <li v-for="item in list" v-bind:key="item.id">
+        id: {{item.id}}  {{item.name}} HP:{{item.hp}}
+      </li>
+    </ul>
 
-    <div v-if="type === 'A'" key="content-visuble">
-      type Aです
-    </div>
+    <!-- 変数を括弧で囲み配列インデックスを任意に受け取れる -->
+    <ul>
+      <li v-for="(item,index) in list" v-bind:key="item.id">
+        id: {{item.id}}  {{item.name}} HP:{{item.hp}}
+      </li>
+    </ul>
 
-    <div v-lese-if="type === 'B'" key="content-loading">
-      type Bです
-    </div>
+    <!-- オブジェクトなら値、key、インデックスの順で任意に受け取れる -->
+    <ul>
+      <li v-for="(item, key, index) in list" v-bind:key="item.id">
+        id: {{item.id}}  {{item.name}} HP:{{item.hp}}
+      </li>
+    </ul>
 
-    <div v-else  key="content-nohit">
-      条件外です
-    </div>
+    <!-- keyの重要性について
+         keyがないと追加、削除、順番変更を行った際に不具合が起こるkeyがあれば該当のdomに変更が行われる
+        　v-forなどの繰り返し処理では key='1' など固定にするとすべて同じkeyになってしまうからダメ
+        　
+        　別のv-forでも同じ親要素内でkeyの重複はできない。
+          以下はダメな例:ul内に同じkeyのv-forが存在する
+              <ul>
+                <li v-for="item in list" v-bind:key="item.id"></li>
+                <li v-for="item in list" v-bind:key="item.id"></li>
+              </ul>
+    -->
+
 
 
     <!-- 
