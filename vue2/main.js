@@ -15,7 +15,7 @@ var app = new Vue({
             {
                 id: 3,
                 name: 'ゴブリン',
-                hp: 300
+                hp: 200
             }
         ],
     }

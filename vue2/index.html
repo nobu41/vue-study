@@ -9,30 +9,33 @@
   <div id="app">
     <!-- この#appの内側にテンプレートを書き込んでいく -->
 
-
-    <!-- v-for
-          <li v-for="代入する変数名 in 繰り返したい配列 or オブジェクト名" v-bind:key="item.id">
-    -->
-
+    <!-- 条件を使ったクラスの操作  -->
     <ul>
-      <li v-for="item in list" v-bind:key="item.id">
-        id: {{item.id}}  {{item.name}} HP:{{item.hp}}
+      <!-- 配列のデータをbindでclass付与の分岐  -->
+      <li v-for="item in list"
+          v-bind:key="item.id"
+          v-bind:class="{ tuyoi: item.hp > 300 }">
+        id: {{item.id}}  {{item.name}} HP:{{item.hp}} 
+
+        <!-- v-ifでforの配列の値で分岐  -->
+        <span v-if="item.hp > 300">つよい</span>
       </li>
     </ul>
 
-    <!-- 変数を括弧で囲み配列インデックスを任意に受け取れる -->
+    <!-- 描画と表示の条件  -->
+    <!-- 〇件ヒットなどは このやり方ではできない
+        本来は算出プロパティを用いる -->
     <ul>
-      <li v-for="(item,index) in list" v-bind:key="item.id">
-        id: {{item.id}}  {{item.name}} HP:{{item.hp}}
+      <!-- v-forにifを付与し、条件に合ったものだけ描画  -->
+      <li v-for="item in list"
+          v-bind:key="item.id"
+          v-if="item.hp < 300">
+        id: {{item.id}}  {{item.name}} HP:{{item.hp}} 
       </li>
     </ul>
 
-    <!-- オブジェクトなら値、key、インデックスの順で任意に受け取れる -->
-    <ul>
-      <li v-for="(item, key, index) in list" v-bind:key="item.id">
-        id: {{item.id}}  {{item.name}} HP:{{item.hp}}
-      </li>
-    </ul>
+
+
 
     <!-- keyの重要性について
          keyがないと追加、削除、順番変更を行った際に不具合が起こるkeyがあれば該当のdomに変更が行われる
