@@ -9,6 +9,10 @@
   <div id="app">
     <!-- この#appの内側にテンプレートを書き込んでいく -->
 
+    <!-- リストにモンスター名を追加 -->
+    名前：<input v-model="name" >
+    <button v-on:click="doAdd">追加</button>
+
     <!-- 条件を使ったクラスの操作  -->
     <ul>
       <!-- 配列のデータをbindでclass付与の分岐  -->
@@ -16,6 +20,11 @@
           v-bind:key="item.id"
           v-bind:class="{ tuyoi: item.hp > 300 }">
         id: {{item.id}}  {{item.name}} HP:{{item.hp}} 
+
+        <!-- 削除ボタンを追加
+             v-for要素の内側にボタンを作成して削除用のメソッドに要素のインデックス(index)を渡す
+         -->
+        <button v-on:click="doRemove(index)">モンスターを削除</button>
 
         <!-- v-ifでforの配列の値で分岐  -->
         <span v-if="item.hp > 300">つよい</span>
