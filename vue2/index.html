@@ -9,22 +9,13 @@
   <div id="app">
     <!-- この#appの内側にテンプレートを書き込んでいく -->
 
-    <ul>
+    <!-- ユニークキーを持たない配列 -->
 
-      <!-- HPを10づつ減らし0になったら非表示にする -->
-      <li v-for="(item, index) in list"
-          v-bind:key="item.id"
-          v-if="item.hp">
-        id: {{item.id}}  {{item.name}} HP:{{item.hp}} 
+    キーを持たない配列は操作には向かないが、表示するだけなら使っても良い = 使っても良い
+    <select>
+      <option v-for="item in list">{{item}}</option>
+    </select>
 
-        <!-- hpが50以下に表示 -->
-        <span v-if="item.hp < 50">瀕死</span>
-
-        <!-- 攻撃ボタンを追加  -->
-        <button v-on:click="doAttack(index)">攻撃</button>
-
-      </li>
-    </ul>
 
     <!-- keyの重要性について
          keyがないと追加、削除、順番変更を行った際に不具合が起こるkeyがあれば該当のdomに変更が行われる
