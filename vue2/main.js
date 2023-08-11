@@ -1,7 +1,6 @@
 var app = new Vue({
     el: '#app',
     data: {
-        name: 'キマイラ',
         list: [
             {
                 id: 1,
@@ -20,19 +19,14 @@ var app = new Vue({
             }
         ],
     },
-    created: function() {
-        //要素を一括して更新する
-        //グローバルAPIのVue.setメソッドを使用
-        //このメソッドはエイリアスとしてthis.$setでも使用できる
-        //this.$set( 更新するデータ,インデックス or キー, 新しい値 )
-        //this.$set(this.list, 0, { id:1, name: 'キングスライム', hp: 500 } )
-
-        //this.$setメソッドは元々持っていないプロパティを
-        //リアクティブデータとして追加するためにも使用できる
-        //すべての要素にactiveプロパティを追加したい
-        this.list.forEach(function(item) {
-            this.$set(item, 'active', false)
-            //「item.active = false」ではリアクティブにならない
+    methods: {
+        //攻撃ボタンクリック時のイベントハンドラ
+        doAttack: function(index) {
+            this.list[index].hp -= 10 //HPを10減らす
+        },
+        //配列メソッドのfilterなど配列を直接、変更しないメソッドでは返り値を使ってリストデータを書き換えることができる
+        this.list = this.list.filter(function(el) {
+            return el.hp >= 100
         })
     },
 })

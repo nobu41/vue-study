@@ -9,42 +9,22 @@
   <div id="app">
     <!-- この#appの内側にテンプレートを書き込んでいく -->
 
-    <!-- リストにモンスター名を追加 -->
-    名前：<input v-model="name" >
-    <button v-on:click="doAdd">追加</button>
-
-    <!-- 条件を使ったクラスの操作  -->
     <ul>
-      <!-- 配列のデータをbindでclass付与の分岐  -->
-      <li v-for="item in list"
+
+      <!-- HPを10づつ減らし0になったら非表示にする -->
+      <li v-for="(item, index) in list"
           v-bind:key="item.id"
-          v-bind:class="{ tuyoi: item.hp > 300 }">
+          v-if="item.hp">
         id: {{item.id}}  {{item.name}} HP:{{item.hp}} 
 
-        <!-- 削除ボタンを追加
-             v-for要素の内側にボタンを作成して削除用のメソッドに要素のインデックス(index)を渡す
-         -->
-        <button v-on:click="doRemove(index)">モンスターを削除</button>
+        <!-- hpが50以下に表示 -->
+        <span v-if="item.hp < 50">瀕死</span>
 
-        <!-- v-ifでforの配列の値で分岐  -->
-        <span v-if="item.hp > 300">つよい</span>
+        <!-- 攻撃ボタンを追加  -->
+        <button v-on:click="doAttack(index)">攻撃</button>
+
       </li>
     </ul>
-
-    <!-- 描画と表示の条件  -->
-    <!-- 〇件ヒットなどは このやり方ではできない
-        本来は算出プロパティを用いる -->
-    <ul>
-      <!-- v-forにifを付与し、条件に合ったものだけ描画  -->
-      <li v-for="item in list"
-          v-bind:key="item.id"
-          v-if="item.hp < 300">
-        id: {{item.id}}  {{item.name}} HP:{{item.hp}} 
-      </li>
-    </ul>
-
-
-
 
     <!-- keyの重要性について
          keyがないと追加、削除、順番変更を行った際に不具合が起こるkeyがあれば該当のdomに変更が行われる
