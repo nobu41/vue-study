@@ -9,24 +9,19 @@
   <div id="app">
     <!-- この#appの内側にテンプレートを書き込んでいく -->
 
-    <!-- オプションにデータを持たないv-for
-          オプションにデータを持たず、範囲やリテラルを直接使用できます。
+    <!-- 外部からデータを取得する
+          外部にデータがある場合jsonファイルやWebAPIから取得する必要がある。
+          jsonファイルのリストをvue.jsのデータとして読み込む。
+          ajaxライブラリにaxiosを使用する
     -->
-
-    <!-- 例：spanで囲まれた 1〜15の数字を描画 -->
-    <span v-for="item in 15">{{ item }}</span>
-
-    <hr>
-    <!-- 例：spanで囲まれた 1,5,10,15の数字を描画 -->
-    <span v-for="item in [1,5,10,15]">{{ item }}</span>
+    <ul>
+      <li v-for="(item, index) in list" v-bind:key="item.id">
+        ID:{{item.id}} {{item.name}} HP:{{item.hp}}
+      </li>
+    </ul>
 
 
-    <hr>
-    <!-- 文字列に対するv-for
-          文字列にv-forを使用すると1文字ずつ別々のspan要素として描画される
-          これにより容易にテキストアニメーションを実行できる
-     -->
-    <span v-for="item in text">{{ item }}</span>
+
 
 
 
@@ -58,6 +53,7 @@
 
   </div>
   <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/axios@0.17.1/dist/axios.min.js"></script>
   <script src="main.js"></script>
 </body>
 </html>
