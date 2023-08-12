@@ -9,9 +9,10 @@
   <div id="app">
     <!-- この#appの内側にテンプレートを書き込んでいく -->
 
-    <p ref="hello">HELLO</p>
-    <!--  $refsを使用するために p要素に refでhelloという名前をつけた -->
-
+    <button v-on:click="handleClick">カウントアップ</button>
+    <button v-on:click="show = !show">表示 / 非表示</button>
+    <span ref="count" v-if="show">0</span>
+    
 
     <!-- 
     v-bindの装飾子
