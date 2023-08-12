@@ -1,6 +1,13 @@
 /* StyleSheet */
+/* #app要素を隠してインスタンス作成後にフェードインさせる  */
+@keyframes cloak-in {
+    0% { opacity:0; }
+}
+#app { animation: cloak-in 1s }
+#app[v-cloak] { opacity:0; }
+
 .v-enter-active, .v-leave-active {
-    transition: opacity 1s;
+    transition: opacity 3s;
 }
 /* opacity:0から1へフェードイン、アウト */
 .v-enter, .v-leave-to {

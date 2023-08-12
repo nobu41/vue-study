@@ -6,21 +6,108 @@
   <link href="main.css" rel="stylesheet">
 </head>
 <body>
-  <div id="app">
+
+
+  <!-- v-cloak -->
+  <!-- インスタンスの準備が終わると自動的に取り除かれる。
+       インスタンス作成中のMustacheなどのコンパイル前のテンプレートが画面に表示されるのを防ぐ
+       
+       【基本的な使い方】スタイルに [v-clock] { display:none;} を定義する
+
+       【応用】#app要素を隠してインスタンス作成後にフェードインさせることもできる 
+        @keyframe cloak-in {
+          0% { opacity:0; }
+        }
+        #app { animation: cloak-in 1s }
+        #app[v-cloak] { opacity:0; }
+
+  -->
+  <div id="app" v-cloak>
     <!-- この#appの内側にテンプレートを書き込んでいく -->
 
-    <button v-on:click="handleClick">カウントアップ</button>
-    <button v-on:click="show = !show">表示 / 非表示</button>
-    <span ref="count" v-if="show">0</span>
+    <!-- v-pre -->
+    <!-- 子コンポーネントを含む内側のHTMLコンパイルをスキップして静的コンテンツとして扱う
+          サーバーサイドレンダリング時のXSS対策に用いたり、
+          操作をする予定のない長いHTML文章を記述している部分に使用するとパフォーマンスの向上につながる -->
+    <a v-bind:href="url" v-pre>
+      Hello {{ message }}
+    </a><hr>
+
+
+    <!-- v-once -->
+    <!-- 初回だけテンプレートを評価しそれ以降は静的なコンテンツとして扱う -->
+    <a v-bind:href="url" v-once>
+      Hello {{ message }}
+    </a><hr>
+
+
+    <!-- v-text -->
+    <!-- 要素内が単一のMustacheのみで構成される場合、代わりにv-textを使って同じようにテキストコンテンツをバインドできる -->
+    <span v-text="message">
+      ※タグ内の要素は書き換えられるため、この文章は表示されない
+    </span><hr>
+
+
+    <!-- v-html -->
+    <!-- HTMLタグをそのまま表示したい場合に使う。主にAPIから取得したHTML文章を描画するときに使う。
+        ※ {{}}　の場合はXSS対策のためエンティティ化される 
+
+      　【注意】v-html、テンプレートは信頼できるコンテンツに使うこと
+      　 XSSを引き起こすためv-htmlを使用するデータ、テンプレートは信頼できるコンテンツのみ使用すること。
+      　　データベースのユーザ情報、コメント、URLから受け取ったパラメーターたクエリ等のユーザー情報をそのまま使用しないようにする。
+         テンプレートではJSが実行できてしまう。特にサーバーサイドレンダリングを行っていたり、バックエンドでテンプレートを構築する際は細心の注意が必要
+         もしユーザーから提供されたデータを表示する場合は v-pre を使用し内側にあるMustacheやディレクティブを無効化できる。
+    -->
+    <span v-html="HTMLmessage">
+      ※タグ内の要素は書き換えられるため、この文章は表示されない
+    </span><hr>
+
+    <!-- 仮想DOMの最適化によるDOMの再利用と副作用 -->
+    <!-- DOM操作を最小限にすることによる副作用
+         意図しない描画結果になる
+         例：以下の状態だとinputに文字が入力されているとtoggleが切り替わってもvalueの値は保持されたまま描画される。
+         差分が無いものと認識されるのが原因。この副作用を防ぐために、keyを付与することで区別させることで新規で描画されるようになる
+
+    <button v-on:click="togglechange">インプット切り替え</button>
+    <div v-if="toggle">
+      A <input type="text">
+    </div>
+    <div v-else>
+      B <input type="text">
+    </div>
+
+    この副作用を防ぐために、keyを付与することで区別させることで新規で描画されるようになる
+     -->
+
+    <button v-on:click="togglechange">インプット切り替え</button>
+    <div v-if="toggle" key="a">
+      A <input type="text">
+    </div>
+    <div v-else key="b">
+      B <input type="text">
+    </div>
+
+
     
 
     <!-- 
-    v-bindの装飾子
-    .prop：属性の代わりにDOMプロパティとしてバインドする
-    .camel：ケバブケースの属性名をキャメルケースに変換する
-    .sync：双方向バインディングを行う
+    テンプレートやコンパイル制御のディレクティブ
+    .v-pre：テンプレートのコンパイルをスキップする
+    .v-once：一度だけバインディングを行う
+    .v-text：Mustache{{⚪︎⚪︎}}の代わりに同じようにテキストコンテンツを描画できる
+    .v-html：HTMLタグをそのまま描画する（利用の際は注意）
+    .v-cloak：インスタンスの準備が終わると取り除かれる
      -->
 
+
+    <!-- まとめ  -->
+    <!-- 
+      ・使用したいデータは data オプションに登録する
+      ・操作するリストには不変でユニークなkey属性を設定する
+      ・配列インデックスを使った更新はVue.setを使う
+      ・関数の呼び出し方でthisは変化する事がある
+      ・$el と $refs はmounted 以降で使う
+    -->
      <hr>
      <!-- データの内容確認 -->
      <pre>{{ $data }}</pre>

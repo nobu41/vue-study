@@ -24,22 +24,13 @@
 var app = new Vue({
     el: '#app',
     data:{
-        show: true
+        message: 'メッセージの値やで！',
+        toggle: true,
+        HTMLmessage: '<strong style="color:red;">HTMLメッセージ</strong>の値やで！',
     },
-    methods:{
-        handleClick () {
-            var count = this.$refs.count
-            if (count) {
-                count.innerText = parseInt(count.innerText,10) + 1
-            }
-        }
-    },
-    mounted: function() {
-        console.log(this.$el)
-        //以下がコンソールに表示される = ルートが表示されるね
-        //<div id="app">...略...</div>
-        console.log(this.$refs.hello)
-        //以下がコンソールに表示される = ref="hello"を指定した要素が配下も含め表示される
-        //<p>HELLO</p>
-    }
+    methods: {
+        togglechange: function () {
+            this.toggle = !this.toggle
+          } 
+      }    
 })

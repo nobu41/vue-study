@@ -41,3 +41,7 @@
 ## DOMを直接参照する $el と $refs
 ### ・$elの使い方　$refsの使い方
 ### ・$el や $refs は一時的な更新のため注意
+
+## テンプレート制御 ディレクティブ
+### ・v-pre, v-once, v-text, v-html, v-cloak
+### ・仮想DOMとは
