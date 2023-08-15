@@ -13,3 +13,12 @@
 .v-enter, .v-leave-to {
     opacity: 0;
 }
+
+/* 画像のロードが読み終わってから表示  */
+img {
+    opacity: 1;
+    transition: opacity 1s;
+}
+img.hide {
+    opacity: 0;
+}
