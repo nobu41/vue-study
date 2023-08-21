@@ -62,18 +62,17 @@
         使用できるDOMイベントはアプリケーションで実行しているブラウザのサポート状況に依存。
      -->
     <!-- 画像のロードイベントをハンドル -->
-    <img src="" v-on:load="show=true" v-bind:class="{hide: !show}">
+    <img src="" alt="test" v-on:load="show=true" v-bind:class="{hide: !show}">
     
-
-  <!-- 要素のスクロールイベントをハンドル -->
+    <!-- 要素のスクロールイベントをハンドル -->
     <div v-on:scroll="handler">
       コンテンツ
     </div>
 
-  <!-- マウスのホイールイベントをハンドル -->
-  <div v-on:mousewheel="handler">
-    コンテンツ
-  </div>
+    <!-- マウスのホイールイベントをハンドル -->
+    <div v-on:mousewheel="handler">
+      コンテンツ
+    </div>
 
     <!-- マウスのドラッグイベント※IE9は非対応 -->
     <div v-on:dragstrat="handler" draggable>
