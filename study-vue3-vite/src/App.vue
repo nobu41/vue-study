@@ -1,34 +1,20 @@
 <script setup>
-// script タグ内の setup はscript タグの中で
-// Vue.js のコード(Composition API)の記述を楽にするために必要な設定
-// 削除しても JavaScript のコードが実行できなくなるわけではないが
-// Vue.js を利用したコードは動かない
+// 関数の実行
+// script タグの中では直接関数を実行ができる。
+// 動作確認のため upperCase 関数を追加します。
+// upperCase 関数の中では変数の message を大文字にする処理を行います。
+  let message = 'Hello World';
 
-  console.log('Hello World');
-  const message = 'Hello World';
-  const message2 = '<h2>Hello World</h2>';
+  const upperCase = () => {
+    message = message.toUpperCase();
+  };
+
+  upperCase();
 </script>
 
 <template>
   <h1>Vue 3 入門</h1>
-  <p>{{ message }}</p>
-
-  <!-- マスタッシュは変数を表示するだけではなく JavaScript のコードを実行できる -->
-  <div>{{ message.length * 10 }}</div>
-
-  <!-- マスタッシュの中では三項演算子を実行できる。message の文字列が 10 よりも長い場合は Long と表示、10 以下だと Short と表示 -->
-  <div>{{ message.length > 10 ? 'Long' : 'Short' }}</div>
-
-  <!-- v-text ディレクティブ
-  タグの中に文字を入力するとエラーになる  -->
-  <p v-text="message"></p>
-
-  <!-- v-html ディレクティブ
-  変数に html タグを含めるとそのタグをブラウザ上でタグとして認識させる  -->
-  <div v-html="message2"></div>
-
-
-
+  <div v-text="message"></div>
 
 </template>
 
