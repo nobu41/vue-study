@@ -1,6 +1,13 @@
 <script setup>
-  const isActive = 'active';
-  const isBlack = 'back';
+  const activeColor = 'red';
+  const fontStress = '900';
+
+  const styleObjcet = {
+    color: 'red',
+    fontWeight: 900,
+  };
+
+  const styleObjcet2 = 'color:red;font-weight:900';
 
 </script>
 
@@ -18,19 +25,23 @@
   ・button タグの disabled 属性
   -->
 
-
-  <!-- 複数の class を適用したい場合には配列を利用 -->
-  <p :class="[isActive, isBlack]">v-bindの設定方法の確認</p>
-
-  <!-- 配列の中でオブジェクトを利用することもできる -->
-  <p :class="[{ active: 'isActive' }, isBlack]">v-bindの設定方法の確認</p>
-
-  <!-- 配列の中で演算子を利用することもできる -->
-  <p :class="[isActive && 'active', isBlack]">v-bindの設定方法の確認</p>
-  
-  <p :class="[isActive ? 'active' : 'underLine', isBlack]">
-  v-bindの設定方法の確認
+  <!-- style 属性の設定 -->
+  <!-- 変数 activeColor, fontStress を定義して v-bind を設定した style 属性の中で利用 -->
+  <p :style="{ color: activeColor, fontWeight: fontStress }">
+    v-bindの設定方法の確認
   </p>
+
+  <!-- 通常の style のプロパティを利用した場合はシングルクォーテーションを使う -->
+  <p :style="{ color: activeColor, 'font-weight': fontStress }">
+    v-bindの設定方法の確認
+  </p>
+
+  <!-- 変数側で style を設定もできる。変数側でスタイルを設定することで template タグがすっきりする -->
+  <p :style="styleObjcet">v-bindの設定方法の確認</p>
+
+  <!-- 通常の style 属性のように記述することもできます。 -->
+  <p :style="styleObjcet2">v-bindの設定方法の確認</p>
+
 
 
 </template>
