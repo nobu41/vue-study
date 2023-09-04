@@ -1,40 +1,45 @@
 <script setup>
-    //配列
-    // const users = [
-    //   { id: 1, name: 'John Doe', email: 'john@test.com', admin: true },
-    //   { id: 2, name: 'Jane Doe', email: 'jane@example.com', admin: false },
-    //   { id: 3, name: 'Kevin MacDonald', email: 'kevin@test.com', admin: false },
-    // ]
-
-    //オブジェクト
-    const user = {
-      id: 1,
-      name: 'John Doe',
-      email: 'john@test.com',
-      admin: true,
+// click イベント
+    const clickButton = () => {
+      console.log('click button');
     };
-
-    const users = [
-      { id: 1, name: 'John Doe', email: 'john@test.com', admin: true },
-      { id: 2, name: 'Jane Doe', email: 'jane@example.com', admin: false },
-      { id: 3, name: 'Kevin MacDonald', email: 'kevin@test.com', admin: false },
-    ];
+    const clickButton2 = (msg) => {
+      console.log(msg);
+    };
+    const another = (msg) => {
+      console.log(msg);
+    };
+//event オブジェクト
+    const clickButton3 = (event) => {
+      console.log(event.target);
+      //event オブジェクトから要素にアクセスできるので要素スタイルを変更可能
+      event.target.style.backgroundColor = 'red';
+    };
 
 </script>
 
 <template>
   <h1>Vue 3 入門</h1>
 <!-- ---------------------------------
- リスト表示
+ イベントの設定
 --------------------------------- -->
-<!-- リストと分岐 -->
-<!-- v-for ディレクティブと v-if ディレクティブを利用することで条件が一致した情報のみ表示できる -->
-    <!-- admin の値が false のユーザのみ表示 -->
-    <div v-for="user in users" :key="user.id">
-      <div v-if="!user.admin">{{ user.name }}</div>
-    </div>
+<!-- click イベント -->
+<!-- v-on:イベント名="関数名" -->
+    <button v-on:click="clickButton">クリック</button>
+    <button @dblclick="clickButton">Wクリックでイベント</button>
+    <button @mouseover="clickButton">マウスオーバーでイベント</button>
+    <button @mouseenter="clickButton">マウスオーバーでイベント</button>
+
+    <!-- ボタンをクリックすると引数で渡した文字列をコンソールで表示 -->
+    <button @click="clickButton2('クリック')">クリック</button>
+
+    <!-- クリックイベントを受け取って複数の関数を実行することも可能 -->
+    <button @click="clickButton2('クリック'), another('click')">クリック</button>
 
 
+<!-- event オブジェクト -->
+    <!-- $eventでイベントオブジェクトを受け取る -->
+    <button @click="clickButton3($event)">クリック</button>
 
 </template>
 
