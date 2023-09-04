@@ -1,20 +1,8 @@
 <script setup>
-// form タグの submit が実行されるとページのリロードが必ず行われる。
-// ページのリロードを防ぐためには event オブジェクトを利用して
-//  event.preventDefault を実行する必要がある。
-
-// イベント修飾子を使わない方法
+// キー修飾子
   const send = () => {
-    event.preventDefault();
     console.log('send');
   };
-
-// イベント修飾子
-// vent オブジェクトを利用せずに実現可能
-  const send2 =() => {
-    console.log('send2');
-  };
-
 </script>
 
 <template>
@@ -22,19 +10,24 @@
 <!-- ---------------------------------
  イベントの設定
 --------------------------------- -->
-<!-- イベント修飾子 -->
-    <!-- イベント修飾子を使わない方法 -->
-    <form @submit="send($events)">
-      <button>送信</button>
+<!-- キー修飾子 -->
+    <!-- キーボードのキーが押された時にイベントを受け取りたい場合 -->
+    <form @submit.prevent="send">
+      <button @keyup.enter="submit">送信</button>
     </form>
+    <!-- Enter ボタンを押すと enter イベントが発生し、@keyup.enter イベントでイベントを受け取り submit 関数を実行。submit 関数によるイベントを@submit イベントが受け取り send 関数が実行され、コンソールに"send"が表示される。 -->
 
 
-    <!-- イベント修飾子 -->
-    <!-- イベント名の後に.修飾子をつけることで機能を追加 -->
-    <form @submit.prevent="send2">
-      <button>送信</button>
-    </form>
-    <!-- イベント修飾子には prevent のほかに event.stopPropagation を実行するために利用することができる stop などがある -->
+<!-- そのほかのキー修飾子には下記がある。設定することでそれぞれのキーを押した際に発生するイベントを取得することができます。
+.enter
+.tab
+.delete
+.esc
+.space
+.up
+.down
+.left
+.right -->
 </template>
 
 <style>
