@@ -1,33 +1,24 @@
 <script setup>
-// キー修飾子
-  const send = () => {
-    console.log('send');
-  };
+// ref の設定
+import { ref } from 'vue';
+const count = ref(0);
+
+const addCount = () => {
+  count.value++;
+};
+
 </script>
 
 <template>
   <h1>Vue 3 入門</h1>
 <!-- ---------------------------------
- イベントの設定
+ Reactivity
 --------------------------------- -->
-<!-- キー修飾子 -->
-    <!-- キーボードのキーが押された時にイベントを受け取りたい場合 -->
-    <form @submit.prevent="send">
-      <button @keyup.enter="submit">送信</button>
-    </form>
-    <!-- Enter ボタンを押すと enter イベントが発生し、@keyup.enter イベントでイベントを受け取り submit 関数を実行。submit 関数によるイベントを@submit イベントが受け取り send 関数が実行され、コンソールに"send"が表示される。 -->
+<!-- ref の設定 -->
+<!-- count 数が増やせるようにするためには ref 関数または reactivity 関数を使って変数に reactivity を持たせる必要がある -->
+  <button type="button" @click="addCount">count is: {{ count }}</button>
 
 
-<!-- そのほかのキー修飾子には下記がある。設定することでそれぞれのキーを押した際に発生するイベントを取得することができます。
-.enter
-.tab
-.delete
-.esc
-.space
-.up
-.down
-.left
-.right -->
 </template>
 
 <style>
