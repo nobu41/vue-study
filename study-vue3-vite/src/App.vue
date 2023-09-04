@@ -1,5 +1,7 @@
 <script setup>
 // ref の設定
+// script タグの中で count の数を増やす場合は下記のように 
+// count.value を利用する必要がある
 import { ref } from 'vue';
 const count = ref(0);
 
