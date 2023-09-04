@@ -27,20 +27,14 @@
 <!-- ---------------------------------
  リスト表示
 --------------------------------- -->
-<!-- オブジェクトのリスト化 -->
-    <!-- オブジェクトの値をリスト化 -->
-    <div v-for="value in user" :key="value">{{ value }}</div>
-    <hr>
-    
-    <!-- プロパティ名と値を表示 -->
-    <div v-for="(value, name) in user" :key="value">{{ name }}:{{ value }}</div>
-    <hr>
-
-    <!-- 複数の v-for を実行 -->
-    <!-- 配列のオブジェクトの v-for とオブジェクトの v-for を組み合わせできる -->
+<!-- リストと分岐 -->
+<!-- v-for ディレクティブと v-if ディレクティブを利用することで条件が一致した情報のみ表示できる -->
+    <!-- admin の値が false のユーザのみ表示 -->
     <div v-for="user in users" :key="user.id">
-      <div v-for="(value, name) in user" :key="value">{{ name }}:{{ value }}</div>
+      <div v-if="!user.admin">{{ user.name }}</div>
     </div>
+
+
 
 </template>
 
