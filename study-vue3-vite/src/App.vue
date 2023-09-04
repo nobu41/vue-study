@@ -1,20 +1,19 @@
 <script setup>
-// click イベント
-    const clickButton = () => {
-      console.log('click button');
-    };
-    const clickButton2 = (msg) => {
-      console.log(msg);
-    };
-    const another = (msg) => {
-      console.log(msg);
-    };
-//event オブジェクト
-    const clickButton3 = (event) => {
-      console.log(event.target);
-      //event オブジェクトから要素にアクセスできるので要素スタイルを変更可能
-      event.target.style.backgroundColor = 'red';
-    };
+// form タグの submit が実行されるとページのリロードが必ず行われる。
+// ページのリロードを防ぐためには event オブジェクトを利用して
+//  event.preventDefault を実行する必要がある。
+
+// イベント修飾子を使わない方法
+  const send = () => {
+    event.preventDefault();
+    console.log('send');
+  };
+
+// イベント修飾子
+// vent オブジェクトを利用せずに実現可能
+  const send2 =() => {
+    console.log('send2');
+  };
 
 </script>
 
@@ -23,24 +22,19 @@
 <!-- ---------------------------------
  イベントの設定
 --------------------------------- -->
-<!-- click イベント -->
-<!-- v-on:イベント名="関数名" -->
-    <button v-on:click="clickButton">クリック</button>
-    <button @dblclick="clickButton">Wクリックでイベント</button>
-    <button @mouseover="clickButton">マウスオーバーでイベント</button>
-    <button @mouseenter="clickButton">マウスオーバーでイベント</button>
-
-    <!-- ボタンをクリックすると引数で渡した文字列をコンソールで表示 -->
-    <button @click="clickButton2('クリック')">クリック</button>
-
-    <!-- クリックイベントを受け取って複数の関数を実行することも可能 -->
-    <button @click="clickButton2('クリック'), another('click')">クリック</button>
+<!-- イベント修飾子 -->
+    <!-- イベント修飾子を使わない方法 -->
+    <form @submit="send($events)">
+      <button>送信</button>
+    </form>
 
 
-<!-- event オブジェクト -->
-    <!-- $eventでイベントオブジェクトを受け取る -->
-    <button @click="clickButton3($event)">クリック</button>
-
+    <!-- イベント修飾子 -->
+    <!-- イベント名の後に.修飾子をつけることで機能を追加 -->
+    <form @submit.prevent="send2">
+      <button>送信</button>
+    </form>
+    <!-- イベント修飾子には prevent のほかに event.stopPropagation を実行するために利用することができる stop などがある -->
 </template>
 
 <style>
