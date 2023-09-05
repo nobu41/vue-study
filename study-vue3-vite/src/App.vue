@@ -1,13 +1,10 @@
 <script setup>
-// ref の設定
-// script タグの中で count の数を増やす場合は下記のように 
-// count.value を利用する必要がある
-import { ref } from 'vue';
-const count = ref(0);
-
-const addCount = () => {
-  count.value++;
-};
+// reactive の設定
+// vue から reactive 関数を import 
+import { reactive } from 'vue';
+const state = reactive({
+  count: 0,
+});
 
 </script>
 
@@ -16,9 +13,9 @@ const addCount = () => {
 <!-- ---------------------------------
  Reactivity
 --------------------------------- -->
-<!-- ref の設定 -->
-<!-- count 数が増やせるようにするためには ref 関数または reactivity 関数を使って変数に reactivity を持たせる必要がある -->
-  <button type="button" @click="addCount">count is: {{ count }}</button>
+<!-- reactive の設定 -->
+<!-- count の値を表示する場合はオブジェクトだから state.count　値を増やす場合も state.count++ -->
+<button type="button" @click="state.count++">count is: {{ state.count }}</button>
 
 
 </template>
