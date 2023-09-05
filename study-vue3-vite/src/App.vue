@@ -1,42 +1,35 @@
 <script setup>
-//関数を import
-import { ref, reactive, computed } from 'vue';
+import { ref, watch } from 'vue';
 const count = ref(0);
 
-const user = reactive({
-  firstName: 'John',
-  lastName: 'Doe',
+//Count のボタンを押す度に watcher で変更を検知し、コンソールに count 数が表示
+// watch(count, (count) => {
+//   console.log('count:', count);
+// });
+
+//watcher では変更後の値だけではなく変更前の値も確認できる。
+//第一引数に変更後の値、第二引数に変更前の値が渡されます。
+//Count ボタンをクリックすると変更前の値と変更後の値がコンソールに表示
+watch(count, (count, previousCount) => {
+  console.log('count:', count);
+  console.log('previousCount:', previousCount);
 });
 
-const fullName = () => {
-  console.log('Function');
-  return `${user.firstName} ${user.lastName}`;
-};
-const cFullName = computed(() => {
-  console.log('Computed Propety');
-  return `${user.firstName} ${user.lastName}`;
-});
+
 </script>
 
 <template>
   <h1>Vue 3 入門</h1>
 <!-- ---------------------------------
-Computed プロパティ
-定義済みの変数を利用して計算、加工を行うことで
-元のデータとは異なる形でユーザに表示することができる
+Watcher
+reactive な変数、computed プロパティの変更を監視し、
+変更を検知した場合に別の処理を実行
 --------------------------------- -->
-<!-- Computed vs Function -->
-<!-- input 要素を利用して reactive な変数を更新 -->
-<h2>fullName: {{ fullName() }}</h2>
-<h2>fullName: {{ fullName() }}</h2>
-<h2>fullName: {{ fullName() }}</h2>
-<h2>cFullName: {{ cFullName }}</h2>
-<h2>cFullName: {{ cFullName }}</h2>
-<h2>cFullName: {{ cFullName }}</h2>
-<!-- fullName 関数ではすべての fullName 関数の実行で Math.randam 関数が実行されるため異なる値が表示されていますが Computed プロパティの cFullName はキャッシュ機能を持っているため一度 Math.randam 関数が実行されるだけで後は同じ値を持 -->
+<!-- watcher + ref -->
+<!-- ref 関数で作成した reactive な変数 count を監視し
+     count が更新されたら更新された後の値を表示するように設定 -->
+     <button @click="count++">Count:{{ count }}</button>
 
-<input v-model="user.firstName" />
-<button @click="count++">Count:{{ count }}</button>
 </template>
 
 <style>
