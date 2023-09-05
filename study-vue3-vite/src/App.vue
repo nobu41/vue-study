@@ -1,44 +1,24 @@
 <script setup>
-  import { reactive } from 'vue';
-  const form = reactive({
-    message: 0,
+//reactive, computed 関数を import
+  import { reactive, computed } from 'vue';
+  const user = reactive({
+    firstName: 'John',
+    lastName: 'Doe',
   });
 
-  const clickButton = () => {
-    console.log(typeof form.message);
-  };
+  //関数の戻り値が template タグの中で設定した fullName に表示
+  const fullName = computed(() => `${user.firstName} ${user.lastName}`);
 </script>
 
 <template>
   <h1>Vue 3 入門</h1>
 <!-- ---------------------------------
- 入力フォーム
+Computed プロパティ
+定義済みの変数を利用して計算、加工を行うことで
+元のデータとは異なる形でユーザに表示することができる
 --------------------------------- -->
-<!-- 修飾子(Modifiers) -->
-<!-- v-model は以下の修飾子を利用することで v-model の動作を変更できる -->
-
-
-<!-- lazy：input 要素からカーソルを外した場合に変更が反映 -->
-<input v-model.lazy="reactiveな変数名" />
-
-<!-- trim：先頭や最後の空白を取り除く。文字の間にある空白は削除されない -->
-<input v-model.trim="reactiveな変数名" />
-
-<!-- number：JSでは input 要素に入力した値を取得すると文字列として扱うが
-              number を設定するとvueが数値に変換して取得できるする。type が text の場合に利用することが可能 -->
-<input v-model.number="reactiveな変数名" type="text" />
-
-
-<!-- typeof  -->
-    <!-- type の設定値が number の場合は number 修飾子はをつけなくても"number"と表示
-     typeof は JavaScript の関数でタイプを確認するために利用できる。
-     TypeScript でも型のチェックに利用する -->
-<p>{{ form.message }}</p>
-<input v-model="form.message" type="text" />
-<div>
-  <button @click="clickButton">Click</button>
-</div>
-
+<!-- <h2>fullName: {{ user.firstName }} {{ user.lastName }}</h2> -->
+<h2>fullName: {{ fullName }}</h2>
 
 </template>
 
