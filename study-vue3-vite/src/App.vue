@@ -1,13 +1,12 @@
 <script setup>
-import { reactive } from 'vue';
+  import { reactive } from 'vue';
+  const form = reactive({
+    message: 0,
+  });
 
-const form = reactive({
-  message: 'Hello World',
-});
-
-const clickButton = () => {
-  console.log(form.message);
-};
+  const clickButton = () => {
+    console.log(typeof form.message);
+  };
 </script>
 
 <template>
@@ -15,17 +14,30 @@ const clickButton = () => {
 <!-- ---------------------------------
  入力フォーム
 --------------------------------- -->
-<!-- input 要素 -->
+<!-- 修飾子(Modifiers) -->
+<!-- v-model は以下の修飾子を利用することで v-model の動作を変更できる -->
 
-<!-- reactive 関数で定義した場合 -->
+
+<!-- lazy：input 要素からカーソルを外した場合に変更が反映 -->
+<input v-model.lazy="reactiveな変数名" />
+
+<!-- trim：先頭や最後の空白を取り除く。文字の間にある空白は削除されない -->
+<input v-model.trim="reactiveな変数名" />
+
+<!-- number：JSでは input 要素に入力した値を取得すると文字列として扱うが
+              number を設定するとvueが数値に変換して取得できるする。type が text の場合に利用することが可能 -->
+<input v-model.number="reactiveな変数名" type="text" />
+
+
+<!-- typeof  -->
+    <!-- type の設定値が number の場合は number 修飾子はをつけなくても"number"と表示
+     typeof は JavaScript の関数でタイプを確認するために利用できる。
+     TypeScript でも型のチェックに利用する -->
 <p>{{ form.message }}</p>
-<input v-model="form.message" />
-<div><button @click="clickButton">Click</button></div>
-
-<!-- v-modelは以下のように
-     value に v-bind を設定し input イベントを利用して文字を入力する度に
-     input 要素に入力した値を$event オブジェクトから取得して設定している
-<input :value="message" @input="message = $event.target.value" /> -->
+<input v-model="form.message" type="text" />
+<div>
+  <button @click="clickButton">Click</button>
+</div>
 
 
 </template>
