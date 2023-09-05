@@ -1,10 +1,13 @@
 <script setup>
-  import { ref } from 'vue';
-  const message = ref('Hello World');
+import { reactive } from 'vue';
 
-  const clickButton = () => {
-    console.log(message.value);
-  };
+const form = reactive({
+  message: 'Hello World',
+});
+
+const clickButton = () => {
+  console.log(form.message);
+};
 </script>
 
 <template>
@@ -14,9 +17,9 @@
 --------------------------------- -->
 <!-- input 要素 -->
 
-<!-- ref 関数で定義した場合 -->
-<p>{{ message }}</p>
-<input v-model="message" />
+<!-- reactive 関数で定義した場合 -->
+<p>{{ form.message }}</p>
+<input v-model="form.message" />
 <div><button @click="clickButton">Click</button></div>
 
 <!-- v-modelは以下のように
