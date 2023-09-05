@@ -2,10 +2,14 @@
 // reactive の設定
 // vue から reactive 関数を import 
 import { reactive } from 'vue';
+
+// script タグ内で count の数を増やす場合
 const state = reactive({
   count: 0,
 });
-
+const addCount = () => {
+    state.count++;
+};
 </script>
 
 <template>
@@ -15,8 +19,8 @@ const state = reactive({
 --------------------------------- -->
 <!-- reactive の設定 -->
 <!-- count の値を表示する場合はオブジェクトだから state.count　値を増やす場合も state.count++ -->
-<button type="button" @click="state.count++">count is: {{ state.count }}</button>
-
+<!-- script タグ内で count の数を増やす場合 -->
+<button type="button" @click="addCount">count is: {{ state.count }}</button>
 
 </template>
 
