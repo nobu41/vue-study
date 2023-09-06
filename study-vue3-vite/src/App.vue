@@ -1,20 +1,24 @@
 <script setup>
-import { ref, watch } from 'vue';
-const count = ref(0);
-
-//Count のボタンを押す度に watcher で変更を検知し、コンソールに count 数が表示
-// watch(count, (count) => {
-//   console.log('count:', count);
-// });
-
-//watcher では変更後の値だけではなく変更前の値も確認できる。
-//第一引数に変更後の値、第二引数に変更前の値が渡されます。
-//Count ボタンをクリックすると変更前の値と変更後の値がコンソールに表示
-watch(count, (count, previousCount) => {
-  console.log('count:', count);
-  console.log('previousCount:', previousCount);
+import { reactive, watch } from 'vue';
+const state = reactive({
+  count: 0,
 });
 
+//reactive 関数のオブジェクトのプロパティを監視する場合
+//関数の形に変更することで state.count の監視が可能。
+//Count ボタンをクリックすると変更前の値と変更後の値がコンソールに表示
+watch(
+  () => state.count,
+  (count, previousCount) => {
+    console.log('count:', count);
+    console.log('previousCount:', previousCount);
+  }
+);
+//以下はエラーになる
+// watch(state.count, (count, previousCount) => {
+//     console.log('count:', count);
+//     console.log('previousCount:', previousCount);
+//   });
 
 </script>
 
@@ -25,10 +29,10 @@ Watcher
 reactive な変数、computed プロパティの変更を監視し、
 変更を検知した場合に別の処理を実行
 --------------------------------- -->
-<!-- watcher + ref -->
-<!-- ref 関数で作成した reactive な変数 count を監視し
-     count が更新されたら更新された後の値を表示するように設定 -->
-     <button @click="count++">Count:{{ count }}</button>
+<!-- watcher + reactive -->
+<!-- reactive 関数を使って定義した count に対しても watcher の動作確認
+     監視対応に state.count を設定 -->
+     <button @click="state.count++">Count:{{ state.count }}</button>
 
 </template>
 
