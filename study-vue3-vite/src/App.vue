@@ -1,38 +1,15 @@
 <script setup>
-import { reactive, watch } from 'vue';
-const state = reactive({
-  count: 0,
-});
+import { ref, watchEffect } from 'vue';
 
-//reactive 関数のオブジェクトのプロパティを監視する場合
-//関数の形に変更することで state.count の監視が可能。
-//Count ボタンをクリックすると変更前の値と変更後の値がコンソールに表示
-// watch(
-//   () => state.count,
-//   (count, previousCount) => {
-//     console.log('count:', count);
-//     console.log('previousCount:', previousCount);
-//   }
-// );
+const count = ref(0);
+const count2 = ref(100);
 
-//watcher の Options
-//reactive 関数で定義した state を watch に設定して count を変更した場合
-//watcher の処理をページを開いた直後に実行しておきたい場合は
-//オプションに immediate:true を設定することで可能。デフォルトでは false が設定
-watch(
-  () => state.count,
-  (count, previousCount) => {
-    console.log('count:', count);
-    console.log('previousCount:', previousCount);
-  },
-  { immediate: true }
-);
+//watchEffect ではページを開いた時にも一度処理が実行される
+watchEffect(() => console.log(count.value));
 
-//以下はエラーになる
-// watch(state.count, (count, previousCount) => {
-//     console.log('count:', count);
-//     console.log('previousCount:', previousCount);
-//   });
+//両方の変数を watchEffect に追加すると
+//どちらのボタンをクリックしても watchEffect の関数が実行される
+watchEffect(() => console.log(`${count.value}/${count2.value}`));
 
 </script>
 
@@ -43,10 +20,16 @@ Watcher
 reactive な変数、computed プロパティの変更を監視し、
 変更を検知した場合に別の処理を実行
 --------------------------------- -->
-<!-- watcher + reactive -->
-<!-- reactive 関数を使って定義した count に対しても watcher の動作確認
-     監視対応に state.count を設定 -->
-     <button @click="state.count++">Count:{{ state.count }}</button>
+<!-- watchEffect -->
+<!-- reactive な変数と computed プロパティの変更の検知は
+     watcher だけではなく watchEffectも可能
+     watch のように特定の変数を指定するのではなく
+     watchEffect の中に記述した関数で記述されている変数の変更を検知して実行  -->
+
+<!-- Count のボタンをクリックした場合には watchEffect の関数が実行され、
+     Count2 をクリックしても何も行わない  -->
+     <button @click="count++">Count:{{ count }}</button>
+     <button @click="count2++">Count2:{{ count2 }}</button>
 
 </template>
 
