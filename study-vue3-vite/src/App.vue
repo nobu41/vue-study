@@ -7,13 +7,27 @@ const state = reactive({
 //reactive 関数のオブジェクトのプロパティを監視する場合
 //関数の形に変更することで state.count の監視が可能。
 //Count ボタンをクリックすると変更前の値と変更後の値がコンソールに表示
+// watch(
+//   () => state.count,
+//   (count, previousCount) => {
+//     console.log('count:', count);
+//     console.log('previousCount:', previousCount);
+//   }
+// );
+
+//watcher の Options
+//reactive 関数で定義した state を watch に設定して count を変更した場合
+//watcher の処理をページを開いた直後に実行しておきたい場合は
+//オプションに immediate:true を設定することで可能。デフォルトでは false が設定
 watch(
   () => state.count,
   (count, previousCount) => {
     console.log('count:', count);
     console.log('previousCount:', previousCount);
-  }
+  },
+  { immediate: true }
 );
+
 //以下はエラーになる
 // watch(state.count, (count, previousCount) => {
 //     console.log('count:', count);
