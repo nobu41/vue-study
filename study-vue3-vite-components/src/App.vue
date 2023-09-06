@@ -22,8 +22,8 @@ import Hello from './components/Hello.vue';
   <!-- コンポーネントの再利用 -->
   <!-- import した Hello コンポーネントを template タグの中で複数回追加できる -->
   <!-- 親コンポーネント側のファイルでは何度でもコンポーネントを利用することができる -->
-  <Hello />
-  <Hello />
+  <!-- <Hello />
+  <Hello /> -->
 
 
 </template>
