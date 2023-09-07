@@ -1,31 +1,12 @@
 <script setup>
-//ref、reactive 関数の利用
-import { ref, reactive } from 'vue';
-
-const count = ref(0);
-const state = reactive({
-  count: 1,
+//変数名はなんでもok
+//defineProps 関数を利用する（import を行う必要はない）
+const props = defineProps({
+  message: String,
 });
-
-//reactive な変数を表示
-const addRefCount = () => {
-  count.value++;
-};
-
-const addReactiveCount = () => {
-  state.count++;
-};
-
 </script>
 
 <template>
   <h2>初めてのコンポーネント</h2>
-  <p>Ref Count:{{ count}}</p>
-  <p>Reactive Count:{{ state.count }}</p>
-
-  <div>
-    <button @click="addRefCount">Ref Count+</button>
-    <button @click="addReactiveCount">Reactive Count+</button>
-  </div>
-
+  <p>{{ props.message }}</p>
 </template>
