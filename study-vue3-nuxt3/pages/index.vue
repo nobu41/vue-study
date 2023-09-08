@@ -1,6 +1,10 @@
 <template>
   <div>
     <h1>Main Page</h1>
+    <div>
+      <!-- 画像呼び出しにはパスの先頭に”~”が必要 -->
+      <img src="~/assets/icon.png" alt="Nuxt" />
+    </div>
   </div>
 </template>
 
