@@ -1,16 +1,12 @@
+<!-- index.vue で compsables の useNuxtApp 関数を実行して
+     プラグイン$hello を取り出す処理 -->
 <template>
-<!-- pages/index.vue ファイルで useCounter を利用したい場合 -->
-<!-- 下記のように import なし(Auto imports)で利用することができる -->
   <div>
     <h1>Main Page</h1>
-    <div>Count:{{ count }}</div>
-    <div>
-      <button @click="() => inc()">increase</button>
-      <button @click="() => dec()">decrease</button>
-    </div>
+    <h2>{{ $hello('World') }}</h2>
   </div>
 </template>
 
-<script setup>4
-  const { count, inc, dec } = useCounter(100);
+<script setup>
+  const { $hello } = useNuxtApp();
 </script>
