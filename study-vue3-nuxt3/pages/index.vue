@@ -1,22 +1,16 @@
 <template>
+<!-- pages/index.vue ファイルで useCounter を利用したい場合 -->
+<!-- 下記のように import なし(Auto imports)で利用することができる -->
   <div>
     <h1>Main Page</h1>
+    <div>Count:{{ count }}</div>
     <div>
-      <!-- /assets/から画像を表示 パスの先頭に”~”が必要 -->
-      <img src="~/assets/icon.png" alt="Nuxt" />
-
-      <!-- /public/から画像を表示 publicの記載は不要 -->
-      <img src="/icon_pub.png" alt="Nuxt" />
+      <button @click="() => inc()">increase</button>
+      <button @click="() => dec()">decrease</button>
     </div>
   </div>
 </template>
 
-<!-- index.vue ファイルからscriptでimport -->
-<script setup>
-import '@/assets/css/style.css';
+<script setup>4
+  const { count, inc, dec } = useCounter(100);
 </script>
-
-<!-- style タグで import @が必要 -->
-<style scoped>
-@import '@/assets/css/style3.css';
-</style>

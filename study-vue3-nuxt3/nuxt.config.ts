@@ -3,7 +3,7 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
 
   //cssファイル読み込み
-  css: ['/assets/css/style2.css'],
+  // css: ['/assets/css/style2.css'],
 
   //title と description 設定（すべてのページで反映）
   app: {
