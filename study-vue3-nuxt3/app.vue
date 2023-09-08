@@ -1,3 +1,6 @@
+<!-- app.vue ファイルを必須ではないので削除できる
+app.vue ファイルが存在しない場合には
+自動でデフォルトのレイアウトが適用される -->
 <template>
   <div>
     <h1>app.vue直書き</h1>
@@ -8,8 +11,6 @@
 <!-- <NuxtLayout name="custom">とすればlayouts/custom.vue がデフォルトになる -->
 <!-- <NuxtLayout :name="layout"> bind  name Propsで動的にレイアウトを変更できる-->
     <NuxtLayout :name="layout">
-      <h2>NuxtLayoutタグ内に直書き</h2>
-
       <NuxtPage />
     <!-- トップページ(/)にアクセスで pages/index.vue を表示 -->
     <!-- /aboutにアクセスでpages/about.vue を表示 -->
