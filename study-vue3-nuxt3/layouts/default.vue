@@ -1,11 +1,7 @@
 <template>
   <div>
-    <!-- Auto Imports -->
-    <!-- ネストされているコンポーネントファイルは
-         ディレクトリとファイル名でインポートできる
-         以下は
-         components/nav/Navbar.vue = NavNavbar  -->
-    <NavNavbar />
+    <!-- Auto Imports を利用しない場合  -->
+    <Navbar />
 
     <!-- nav/NavBar.vue の場合はNavNavBar としてもだめ
          NavNavBar では、nav/nav/Bar.vue ファイルを
@@ -14,3 +10,8 @@
     <slot />
   </div>
 </template>
+
+<script setup>
+//通常の importも利用できる（Auto Imports を利用しない場合）
+  import Navbar from '@/components/nav/Navbar';
+</script>
