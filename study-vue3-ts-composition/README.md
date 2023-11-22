@@ -27,3 +27,9 @@
 - イベントオブジェクトとその他の引数を併用するイベントハンドラメソッド（directive-on-param-both）
 - v-onの装飾子.prevent（directive-on-prevent）
 - クリックイベントとキーイベントの装飾子（directive-on-modifiers）
+
+## 基本編：双方向データバインディングとその他のディレクティブ（chap05）
+#### 双方向データバインディング
+- 双方向データバインディングを実現するv-model（directive-model）
+- 片方向のデータバインディング（directive-oneway）
+- v-bindとv-on:inputの組み合わせ（directive-twoway）
