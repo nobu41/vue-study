@@ -33,3 +33,10 @@
 - 双方向データバインディングを実現するv-model（directive-model）
 - 片方向のデータバインディング（directive-oneway）
 - v-bindとv-on:inputの組み合わせ（directive-twoway）
+- 文字入力以外のコントロールでのv-model（directive-model-controls）
+- v-modelの装飾子（directive-model-trim）
+#### その他のデータバインディングのディレクティブ
+- HTML文字列をそのまま表示するv-html（directive-html）
+- 静的コンテンツとして表示させるv-pre（directive-pre）
+- データバインドを一度だけ行う（directive-once）
+- レンダリング終了までマスタッシュ構文を非表示にするv-cloak（directive-cloak）
