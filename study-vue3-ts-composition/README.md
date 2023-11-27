@@ -40,3 +40,19 @@
 - 静的コンテンツとして表示させるv-pre（directive-pre）
 - データバインドを一度だけ行う（directive-once）
 - レンダリング終了までマスタッシュ構文を非表示にするv-cloak（directive-cloak）
+
+## 基本編：制御のディレクティブ（chap06）
+#### 条件分岐のディレクティブ
+- 条件分岐ディレクティブの基本 v-if（directive-conditional-basic）
+- 条件分岐ディレクティブをフルセットで利用した場合 v-else-if, v-else（directive-conditional-full）
+- ディレクティブ記述のためのタグ template（directive-conditional-template）
+- v-ifと似て非なる v-show（directive-show）
+#### ループのディレクトリ
+- ループのディレクティブである v-for（directive-loop-basic）
+- 連想配列のループ（directive-loop-associative）
+- Mapのループ（directive-loop-map）
+- オブジェクトのループ（directive-loop-obj）
+- オブジェクトの配列のループ（directive-loop-arrayobj）
+- Mapとオブジェクトの組み合わせのループ（directive-loop-mapobj）
+- カウンタ変数を利用したループ（directive-loop-range）
+#### リスト操作
