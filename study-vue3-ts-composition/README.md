@@ -56,3 +56,8 @@
 - Mapとオブジェクトの組み合わせのループ（directive-loop-mapobj）
 - カウンタ変数を利用したループ（directive-loop-range）
 #### リスト操作
+- ループ対象データの絞り込み（listchange-filter）
+- 配列データの操作（listchange-array）
+- Mapデータの操作（listchange-map）
+- オブジェクト内のデータ変更（listchange-obj）
+- リストデータ内のオブジェクト変更（listchange-mapobj）
