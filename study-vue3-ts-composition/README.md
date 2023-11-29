@@ -61,3 +61,10 @@
 - Mapデータの操作（listchange-map）
 - オブジェクト内のデータ変更（listchange-obj）
 - リストデータ内のオブジェクト変更（listchange-mapobj）
+
+## 基本編：スクリプトブロックのバリエーション（chap07）
+#### ウォッチャー
+- 算出プロパティの役割（change-cocktail）
+- リアクティブ変数の変化を監視する watchEffect（watcheffect）
+- 監視対象を明示するwatch（watch）
+- watch()における変更前後の値の利用（watch-oldnew）
