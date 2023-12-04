@@ -67,4 +67,15 @@
 - 算出プロパティの役割（change-cocktail）
 - リアクティブ変数の変化を監視する watchEffect（watcheffect）
 - 監視対象を明示するwatch（watch）
+- 即時実行のwatch()（watch-immediate）
 - watch()における変更前後の値の利用（watch-oldnew）
+#### ライフサイクルフック
+- ライフサイクルフックの具体例（lifecycle-hooks）
+#### script setupの本当の姿
+- defineComponetとsetup（change-cocktail2）
+- setupとreactiveとtoRefs（reactive-function2）
+#### Options API
+- Options APIの基本構文（optionsapi）
+- Options APIでのライフサイクルフック
+- Options APIでのウォッチャー（optionsapi-watch）
+## 基本編：コンポーネント間連携（chap08）
