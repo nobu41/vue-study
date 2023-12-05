@@ -79,3 +79,11 @@
 - Options APIでのライフサイクルフック
 - Options APIでのウォッチャー（optionsapi-watch）
 ## 基本編：コンポーネント間連携（chap08）
+#### 子コンポーネントの利用
+- コンポーネントの作り方（components-basics）
+- 子コンポーネントの利用方法
+#### コンポーネントの独立性とcssの扱い
+- 処理が含まれたコンポーネントを埋め込む（components-vmodel）
+- コンポーネント内の処理はコンポーネント内で完結
+- スタイルブロックを独立させるscoped属性
+- scoped　CSSのカラクリ
