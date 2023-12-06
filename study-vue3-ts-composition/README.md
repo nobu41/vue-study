@@ -87,3 +87,12 @@
 - コンポーネント内の処理はコンポーネント内で完結
 - スタイルブロックを独立させるscoped属性
 - scoped　CSSのカラクリ
+#### 親から子へのコンポーネント間通信
+- 親からデータをもらうProps（components-props-basics）
+- 親からPropsにデータを渡す方法
+- 親のテンプレート変数をPropsに渡す方法（components-props-bind）
+- v-forとPropsとの組み合わせ（components-props-vfor）
+#### Propsの応用
+- スクリプトブロックでのPropsの値の利用（components-props-indepth）
+- Propsの値の利用の注意点
+- Propsのデフォルト値（components-props-indepth2）
