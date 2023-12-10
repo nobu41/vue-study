@@ -8,11 +8,15 @@ interface Props {
 	email: string;
 	points: number;
 	note?: string;
+	note02?: string;
 }
 //Propsオブジェクトの設定。
 const props = withDefaults(
 	defineProps<Props>(),
-	{note:  "--"}
+	{
+		note:  "--",
+		note02:  "なし"
+	}
 );
 
 //このコンポーネント内で利用するポイント数のテンプレート変数。
@@ -36,6 +40,8 @@ const pointUp = (): void => {
 			<dd>{{localPoints}}</dd>
 			<dt>備考</dt>
 			<dd>{{note}}</dd>
+			<dt>備考02</dt>
+			<dd>{{note02}}</dd>
 		</dl>
 		<button v-on:click="pointUp">ポイント加算</button>
 	</section>

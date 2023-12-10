@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import OneInfo from "./components/OneInfo.vue";
+
 </script>
 
 <template>

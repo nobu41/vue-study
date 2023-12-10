@@ -4,7 +4,7 @@ import OneMember from "./components/OneMember.vue";
 
 //会員リストデータを用意。
 const memberListInit = new Map<number, Member>();
-memberListInit.set(33456, {id: 33456, name: "田中太郎", email: "bow@example.com", points: 35, note: "初回入会特典あり。"});
+memberListInit.set(33456, {id: 33456, name: "田中太郎", email: "bow@example.com", points: 35, note: "初回入会特典あり。", note02: "期間限定特典あり"});
 memberListInit.set(47783, {id: 47783, name: "鈴木二郎", email: "mue@example.com", points: 53});
 const memberList = ref(memberListInit);
 
@@ -26,6 +26,7 @@ interface Member {
 	email: string;
 	points: number;
 	note?: string;
+	note02?: string;
 }
 </script>
 
@@ -40,6 +41,7 @@ interface Member {
 			v-bind:name="member.name"
 			v-bind:email="member.email"
 			v-bind:points="member.points"
-			v-bind:note="member.note"/>
+			v-bind:note="member.note"
+			v-bind:note02="member.note02"/>
 	</section>
 </template>
