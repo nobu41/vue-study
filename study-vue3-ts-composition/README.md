@@ -96,3 +96,12 @@
 - スクリプトブロックでのPropsの値の利用（components-props-indepth）
 - Propsの値の利用の注意点
 - Propsのデフォルト値（components-props-indepth2）
+#### 子から親へのコンポーネント間通信
+- 子から親への通信はイベント処理（components-emit-basics）
+- 親コンポーネントにデータを渡す方法（components-emit-value）
+- v-modelによる子から親への通信（components-emit-model）
+- ProvideとInject（components-provinje）
+- Provideの利用方法
+- Injectの利用方法
+- 孫コンポーネントでもInjectは同様
+## 基本編：子コンポーネント利用のバリエーション（chap09）
