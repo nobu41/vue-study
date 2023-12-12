@@ -105,3 +105,14 @@
 - Injectの利用方法
 - 孫コンポーネントでもInjectは同様
 ## 基本編：子コンポーネント利用のバリエーション（chap09）
+#### 子コンポーネントをカスタマイズするSlot
+- Slotとは
+- Slotの基本的な記述方法（slot-basic）
+- Slotのフォールバックコンテンツ（slot-fallback）
+- テンプレート変数の所属先（slot-datascope）
+- 親でのレンダリング結果のSlot（slot-dynamic）
+#### 複数のSlotを実現する名前付きSlot
+- slotタグの追加
+- 名前付きslot（slot-named）
+- 名前付きSlotにHTML要素を渡すv-slot
+#### データの受け渡しを逆転させるスコープ付きSlot
