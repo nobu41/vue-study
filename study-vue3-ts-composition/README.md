@@ -116,3 +116,39 @@
 - 名前付きslot（slot-named）
 - 名前付きSlotにHTML要素を渡すv-slot
 #### データの受け渡しを逆転させるスコープ付きSlot
+- スコープ付きslotとは（slot-scoped）
+- 子から親へデータを渡すslot Props
+- slot Propsの受け取り方法
+#### 動的コンポーネント
+- 動的コンポーネントとは（components-dynamic）
+- componentタグとv-bind:is
+- KeepAliveの役割
+- コンポーネントの待機
+- ※書籍該当不明：コードをpropsにて子に渡し{{tag}}で表示する（components-props-tag）
+## 基本編：Vue Router（chap10）
+#### シングルページアプリケーション
+- ルーティングとは
+- サーバー再度Webアプリケーションでの処理の流れ
+#### Vue Routerの基本
+- Vue Routerのプロジェクト（router-basic）（初期状態：router-basic-test）
+- 画面用コンポーネントを入れるviewsフォルダ
+- ルーティング表示領域の設定
+- ルーティング設定の基本構文
+- コンポーネントの動的インポート設定
+- ルーティングリンクの設定
+#### ルートパラメータ
+- ルートパラメータの設定
+- ルートパラメータの埋め込み
+- ルートパラメータをPropsとして取得
+#### スクリプトブロックでのルーティング制御
+- 会員情報追加画面の作成
+- ルーティングを制御するRouterオブジェクト
+- Routerオブジェクトの他のメソッド
+#### Vue Routerのその他の機能
+- スクリプトブロックでのルーティング情報の取得
+- さまざまなルートパラメータ[複数パラメータ、省略可能パラメータ、可変長パラメータ、値のチェック、404 Not Found]（router-params）
+- ネストされたルーティング（router-nested）
+- マルチビュー（router-multiple）
+- ナビゲーションカード（router-guards）
+- リダイレクト（参照：router-params）
+## 基本編：Pinia（chap11）
