@@ -189,3 +189,13 @@
 - IndexedDBからデータを取得する処理
 - IndexedDBへのデータ登録処理
 - asyncアクション関数のコンポーネントでの利用
+#### WEBアクセス
+- サンプルプロジェクトの概要とWeb APIの準備
+- Current Weather Dataの利用方法
+- プロジェクトと第１画面の作成（async-web）
+- Webアクセス以外のコードの作成
+- Webアクセスコードの記述
+- Webアクセスの基本はfetch()関数
+- fetch()関数は async関数
+- レスポンスデータの取得は Responseのメソッドを利用
+- fetch()を使いやすくしたライブラリのAxios
