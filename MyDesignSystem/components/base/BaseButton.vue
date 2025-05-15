@@ -40,5 +40,5 @@
   const presetColor = presetColorMap[props.preset]
   const presetVariant = presetVariantMap[props.preset]
 </script>
-<style lang="scss" scoped>
+<style scoped lang="scss">
 </style>

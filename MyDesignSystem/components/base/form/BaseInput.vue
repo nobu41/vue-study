@@ -3,5 +3,5 @@ BaseInput.vue
 </template>
 <script setup lang="ts">
 </script>
-<style lang="scss" scoped>
+<style scoped lang="scss">
 </style>
