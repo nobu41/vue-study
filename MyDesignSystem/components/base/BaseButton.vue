@@ -1,17 +1,17 @@
 <template>
-    <UButton
-      :color="presetColor"
-      :variant="presetVariant"
-      :size="size"
-      :loading="loading"
-      class="rounded-xl font-semibold"
-      v-bind="$attrs"
-    >
-      <slot />
-    </UButton>
-  </template>
+  <UButton
+    :color="presetColor"
+    :variant="presetVariant"
+    :size="size"
+    :loading="loading"
+    class="rounded-xl font-semibold"
+    v-bind="$attrs"
+  >
+    <slot />
+  </UButton>
+</template>
   
-  <script setup lang="ts">
+<script setup lang="ts">
   const props = withDefaults(
     defineProps<{
       preset?: 'primary' | 'secondary' | 'ghost'
@@ -39,4 +39,6 @@
   
   const presetColor = presetColorMap[props.preset]
   const presetVariant = presetVariantMap[props.preset]
-  </script>
+</script>
+<style lang="scss" scoped>
+</style>
