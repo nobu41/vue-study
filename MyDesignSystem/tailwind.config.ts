@@ -18,7 +18,9 @@ export default <Partial<Config>>{
           800: '#0b416f',
           900: '#07294a',
           950: '#051c33'
-        }
+        },
+        'bg-default': '#f7f7ff',//body用 背景色
+        'text-default': '#333333',//テキストベースカラー
       }
     }
   }

@@ -1,0 +1,18 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html,
+  body {
+    //@apply bg-bg-default text-text-default;
+    font-family: 'Noto Sans JP', sans-serif;
+  }
+
+ /* a {
+   @apply text-blue-600 hover:underline;
+ }
+ * {
+   @apply box-border;
+ } */
+}
